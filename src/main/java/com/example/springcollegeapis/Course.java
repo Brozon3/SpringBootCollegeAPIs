@@ -1,4 +1,4 @@
-package classes;
+package com.example.springcollegeapis;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,12 +9,12 @@ import jakarta.persistence.Id;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int courseID;
+    private Integer courseID;
     private String courseName;
     private String courseNumber;
-    private int capacity;
+    private Integer capacity;
 
-    public int getCourseID() {
+    public Integer getCourseID() {
         return courseID;
     }
 
@@ -38,7 +38,7 @@ public class Course {
         this.courseNumber = courseNumber;
     }
 
-    public int getCapacity() {
+    public Integer getCapacity() {
         return capacity;
     }
 

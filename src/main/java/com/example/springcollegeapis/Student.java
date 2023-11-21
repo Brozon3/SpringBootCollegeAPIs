@@ -1,4 +1,4 @@
-package classes;
+package com.example.springcollegeapis;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int studentID;
+    private Integer studentID;
     private String firstName;
     private String lastName;
     private String email;
@@ -18,7 +18,7 @@ public class Student {
     private String postal;
     private String phone;
 
-    public int getStudentID() {
+    public Integer getStudentID() {
         return studentID;
     }
 
