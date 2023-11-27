@@ -32,8 +32,8 @@ public class StudentController {
         return String.format("Added %s %s to the student table.", firstName, lastName);
     }
 
-    @GetMapping("/find/{id}")
-    public Student findStudentByID(@PathVariable Integer id) { return studentRepository.findStudentByStudentID(id); }
+    @GetMapping("/view/{id}")
+    public Student viewStudent(@PathVariable Integer id) { return studentRepository.findStudentByStudentID(id); }
 
     @GetMapping("/list")
     public Iterable<Student> getStudents() { return studentRepository.findAll(); }

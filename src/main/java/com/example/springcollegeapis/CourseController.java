@@ -26,8 +26,8 @@ public class CourseController {
         return String.format("Added %s to the course table.", courseName);
     }
 
-    @GetMapping("/find/{id}")
-    public Course findCourseByID(@PathVariable Integer id){
+    @GetMapping("/view/{id}")
+    public Course viewCourse(@PathVariable Integer id){
         return courseRepository.findCourseByCourseID(id);
     }
 
