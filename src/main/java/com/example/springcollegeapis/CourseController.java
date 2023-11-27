@@ -15,10 +15,9 @@ public class CourseController {
     }
 
     @PostMapping("/add")
-    public String addCourse(@RequestParam Integer courseID, @RequestParam String courseName,
+    public String addCourse(@RequestParam String courseName,
                             @RequestParam String courseNumber, @RequestParam Integer capacity) {
         Course course = new Course();
-        course.setCourseID(courseID);
         course.setCourseName(courseName);
         course.setCourseNumber(courseNumber);
         course.setCapacity(capacity);

@@ -15,12 +15,11 @@ public class StudentController {
     }
 
     @PostMapping("/add")
-    public String addStudent(@RequestParam Integer studentID, @RequestParam String firstName,
+    public String addStudent(@RequestParam String firstName,
                              @RequestParam String lastName, @RequestParam String email,
                              @RequestParam String address, @RequestParam String city,
                              @RequestParam String postal, @RequestParam String phone){
         Student student = new Student();
-        student.setStudentID(studentID);
         student.setFirstName(firstName);
         student.setLastName(lastName);
         student.setEmail(email);
