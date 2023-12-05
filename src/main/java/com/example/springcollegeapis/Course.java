@@ -13,6 +13,23 @@ public class Course {
     private String courseName;
     private String courseNumber;
     private Integer capacity;
+    private Integer year;
+    private String semester;
+    private Integer pid;
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) { this.year = year; }
+
+    public String getSemester() { return semester; }
+
+    public void setSemester(String semester) { this.semester = semester; }
+
+    public Integer getPid() { return pid; }
+
+    public void setPid(Integer pid) { this.pid = pid; }
 
     public Integer getCourseID() {
         return courseID;

@@ -34,4 +34,10 @@ public class CourseController {
     public Iterable<Course> getCourses(){
         return courseRepository.findAll();
     }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteCourse(@PathVariable Integer id) {
+        courseRepository.deleteById(id);
+        return String.format("Deleted program %d", id);
+    }
 }

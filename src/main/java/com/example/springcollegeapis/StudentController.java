@@ -36,4 +36,10 @@ public class StudentController {
 
     @GetMapping("/list")
     public Iterable<Student> getStudents() { return studentRepository.findAll(); }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteStudent(@PathVariable Integer id) {
+        studentRepository.deleteById(id);
+        return String.format("Deleted student %d", id);
+    }
 }
