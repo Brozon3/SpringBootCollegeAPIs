@@ -29,6 +29,18 @@ public class GradeController {
     @GetMapping("/courseGrades/{id}")
     public Grade getGradesByCourseID(@PathVariable Integer id){ return gradeRepository.getGradesByCourseID(id); }
 
+    @PutMapping("/modify")
+    public String modifyGrade(@RequestParam Integer gid, @RequestParam Integer studentID,
+                              @RequestParam Integer courseID, @RequestParam Float gradeValue){
+        Grade grade = new Grade();
+        grade.setGid(gid);
+        grade.setStudentID(studentID);
+        grade.setCourseID(courseID);
+        grade.setGrade(gradeValue);
+        gradeRepository.save(grade);
+        return String.format("Changed grade for student %d and course %d to %f", studentID, courseID, gradeValue);
+    }
+
     @DeleteMapping("/delete/{id}")
     public String deleteGrade(@PathVariable Integer id) {
         gradeRepository.deleteById(id);

@@ -28,6 +28,17 @@ public class EnrollmentController {
     @GetMapping("/studentList/{id}")
     public Enrollment getEnrollmentByStudentID(@PathVariable Integer id){ return enrollmentRepository.findEnrollmentByStudentID(id); }
 
+    @PutMapping("/modify")
+    public String modifyEnrollment(@RequestParam Integer eid, @RequestParam Integer courseID,
+                                   @RequestParam Integer studentID){
+        Enrollment enrollment = new Enrollment();
+        enrollment.setEid(eid);
+        enrollment.setCourseID(courseID);
+        enrollment.setStudentID(studentID);
+        enrollmentRepository.save(enrollment);
+        return String.format("Changed enrollment details for student %d and course %d.", studentID, courseID);
+    }
+
     @DeleteMapping("/delete/{id}")
     public String deleteEnrollment(@PathVariable Integer id) {
         enrollmentRepository.deleteById(id);

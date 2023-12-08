@@ -21,14 +21,25 @@ public class ProgramController {
         return String.format("Added %s to the program table for campus %s.", programName, campus);
     }
 
+    @GetMapping("/list")
+    public Iterable<Program> getPrograms(){
+        return programRepository.findAll();
+    }
+
     @GetMapping("/view/{id}")
     public Program viewProgram(@PathVariable Integer id){
         return programRepository.getProgramsByPid(id);
     }
 
-    @GetMapping("/list")
-    public Iterable<Program> getPrograms(){
-        return programRepository.findAll();
+    @PutMapping("/modify")
+    public String modifyProgram(@RequestParam Integer pid, @RequestParam String programName,
+                                @RequestParam String campus){
+        Program program = new Program();
+        program.setPid(pid);
+        program.setProgramName(programName);
+        program.setCampus(campus);
+        programRepository.save(program);
+        return String.format("Changed program details for %s.", programName);
     }
 
     @DeleteMapping("/delete/{id}")
